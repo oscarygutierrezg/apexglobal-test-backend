@@ -1,0 +1,58 @@
+feign:
+ product-api:
+  url: http://localhost:8081
+ customer-api:
+  url: http://localhost:8082
+ client:
+  config:
+   default:
+    retryer:
+     period: 1000  # Tiempo inicial entre reintentos en ms
+     maxPeriod: 5000  # Máximo tiempo entre reintentos en ms
+     maxAttempts: 3  # Número máximo de intentos
+spring:
+ kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+   group-id: order-worker-group
+   topics:
+    order-topic: com.apexglobal.orders.order.v1.created.test
+   auto-offset-reset: earliest
+   enable-auto-commit: false
+  listener:
+   retry:
+    backoff:
+     initial-interval: 1000    # Tiempo inicial de espera (ms)
+     max-interval: 10000       # Tiempo máximo de espera (ms)
+     multiplier: 2             # Factor multiplicador para el tiempo de espera
+    max-attempts: 5             # Máximo número de intentos
+ data:
+  mongodb:
+   uri: mongodb://localhost:27017/orderdb
+   database: orderdb
+ redis:
+  host: localhost
+  port: 6379
+ cloud:
+  openfeign:
+   circuitbreaker:
+    enabled: true
+    alphanumeric-ids:
+     enabled: true
+resilience4j:
+ circuitbreaker:
+  instances:
+   CustomerFeignClientindex:
+    minimumNumberOfCalls: 69
+   ProductFeignClientindex:
+    minimumNumberOfCalls: 69
+   ProductFeignClientmultiple:
+    minimumNumberOfCalls: 69
+ timelimiter:
+  instances:
+   CustomerFeignClientindex:
+    timeoutDuration: 10s
+   ProductFeignClientindex:
+    timeoutDuration: 10s
+   ProductFeignClientmultiple:
+    timeoutDuration: 10s

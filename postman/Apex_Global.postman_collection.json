@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "cd891739-c75d-4203-9b42-4a2056029add",
+		"name": "Apex Global",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "831327"
+	},
+	"item": [
+		{
+			"name": "Order Worker API",
+			"item": [
+				{
+					"name": "orders Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders/order-123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders",
+								"order-123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders Reprocess Pending",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders/reprocess/pending",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders",
+								"reprocess",
+								"pending"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product API",
+			"item": [
+				{
+					"name": "products Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/v1/products/9023995c-72af-4170-b449-482ec5df146b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"products",
+								"9023995c-72af-4170-b449-482ec5df146b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "products Miltiple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"9023995c-72af-4170-b449-482ec5df146b\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/v1/products/multiple",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"v1",
+								"products",
+								"multiple"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer API",
+			"item": [
+				{
+					"name": "customer Index activo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/v1/customers/b7fc4cb6-6844-4cd0-95fb-f424a3938eb4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"customers",
+								"b7fc4cb6-6844-4cd0-95fb-f424a3938eb4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer Index inactivo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/v1/customers/7ac66acd-411d-4d4b-9cc9-4f9cbe5425f7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"customers",
+								"7ac66acd-411d-4d4b-9cc9-4f9cbe5425f7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
