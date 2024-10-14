@@ -3,14 +3,14 @@ services:
   #Backend
   product-api:
     container_name: product-api
-    image: product-api-server:latest
+    image: oscarygutierrezg/product-api-server
     expose:
       - 8081
     ports:
       - 8081:8081
   customer-api:
     container_name: customer-api
-    image: customer-api-server:latest
+    image: oscarygutierrezg/customer-api-server
     expose:
       - 8082
     ports:
